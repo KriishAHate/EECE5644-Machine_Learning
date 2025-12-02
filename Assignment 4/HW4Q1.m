@@ -71,11 +71,11 @@ XtestQ = Xtest;
 Ytrain_soft = double(label_train==1)+1; 
 Ytest_soft = double(label_test==1)+1;
 
-Hvals = [8 12 16 20];
+Hvals = [1 2 4 8];
 cvErrNN = zeros(numel(Hvals),1);
 idxCV = crossvalind('Kfold', N_train, K);
 
-options = trainingOptions('adam','MaxEpochs',25,'MiniBatchSize',128, ...
+options = trainingOptions('adam','MaxEpochs',250,'MiniBatchSize',128, ...
     'Verbose',false,'Shuffle','every-epoch');
 
 for h=1:numel(Hvals)
